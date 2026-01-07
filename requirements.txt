@@ -1,0 +1,39 @@
+# Core
+python-dotenv==1.0.1
+requests==2.32.3
+
+# Data Handling
+pandas==2.2.2
+numpy==1.26.4
+
+# Market Data
+yfinance==0.2.40
+
+# NLP & ML
+scikit-learn==1.5.1
+transformers==4.43.3
+sentence-transformers==3.0.1
+
+# Topic Modeling
+bertopic==0.16.0
+
+# LangChain (Latest stable Python release)
+langchain==1.2.0
+
+# LangChain integrations
+langchain-openai==1.1.6
+langchain-huggingface==1.2.0
+
+# Backend & APIs
+fastapi==0.112.0
+uvicorn==0.30.3
+
+# Visualization / Dashboard
+streamlit==1.37.0
+
+# Utilities
+tqdm==4.66.4
+
+-e .
+
+
