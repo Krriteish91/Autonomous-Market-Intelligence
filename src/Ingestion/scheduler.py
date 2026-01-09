@@ -1,4 +1,4 @@
-import time 
+
 from src.Ingestion.news_collector import fetch_news, fetch_gnews
 from src.Ingestion.market_collector import fetch_market_data    
 from src.logger import logging

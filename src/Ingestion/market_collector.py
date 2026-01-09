@@ -13,8 +13,8 @@ from src.exception import CustomException
 def fetch_market_data(symbol: str = "AAPL", period: str = "3m"):
     logging.info(f"Fetching market data for {symbol}")
     try:
-        stock = yf.Ticker(symbol)
-        hist = stock.history(period=period)
+        stock:Any = yf.Ticker(symbol)
+        hist:Any = stock.history(period=period)
 
         data: dict[str,Any]= {
             "symbol": symbol,
@@ -26,7 +26,7 @@ def fetch_market_data(symbol: str = "AAPL", period: str = "3m"):
     except Exception as e:
         raise CustomException(e,sys)
 
-def save_raw_data(data: dict,symbol:str) -> None:
+def save_raw_data(data: dict[str,Any],symbol:str) -> None:
     try:
         time_stamp = datetime.now().strftime("%Y%m%d %H%M%S")
         path = f"data/raw/market/{symbol}__{time_stamp}.json"
