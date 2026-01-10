@@ -10,16 +10,18 @@ from src.logger import logging
 from src.exception import CustomException
 
 
-def fetch_market_data(symbol: str = "AAPL", period: str = "3m"):
+def fetch_market_data(symbol: str = "AAPL", period: str = "5d"):
     logging.info(f"Fetching market data for {symbol}")
     try:
         stock:Any = yf.Ticker(symbol)
         hist:Any = stock.history(period=period)
+        hist.reset_index(inplace=True)
+        hist['Date'] = hist['Date'].dt.strftime("%Y-%m-%d_%H:%M:%S")
 
         data: dict[str,Any]= {
             "symbol": symbol,
             "fetch_time": datetime.now().strftime("%Y-%m-%d_%H:%M:%S"),
-            "prices": hist.reset_index().to_dict(orient="records")
+            "prices": hist.to_dict(orient="records")
         }
         logging.info(f"Market data fetched successfully for {symbol}")
         save_raw_data(data, symbol)
@@ -28,7 +30,7 @@ def fetch_market_data(symbol: str = "AAPL", period: str = "3m"):
 
 def save_raw_data(data: dict[str,Any],symbol:str) -> None:
     try:
-        time_stamp = datetime.now().strftime("%Y%m%d %H%M%S")
+        time_stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         path = f"data/raw/market/{symbol}__{time_stamp}.json"
         os.makedirs(os.path.dirname(path), exist_ok=True)
     

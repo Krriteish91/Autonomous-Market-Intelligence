@@ -7,7 +7,7 @@ pandas==2.2.2
 numpy==1.26.4
 
 # Market Data
-yfinance==0.2.40
+yfinance==1.0
 
 # NLP & ML
 scikit-learn==1.5.1
