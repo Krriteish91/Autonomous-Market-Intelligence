@@ -23,7 +23,7 @@ def process_market():
         
 
           for row in data.get("prices"):
-            records.append({
+            records.append({ # type: ignore
                 "symbol": symbol,
                 "date": row.get("Date"),
                 "open": row.get("Open"),
