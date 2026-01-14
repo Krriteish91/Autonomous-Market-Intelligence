@@ -16,6 +16,7 @@ sentence-transformers==3.0.1
 
 # Topic Modeling
 bertopic==0.16.0
+vaderSentiment==3.3.2
 
 # LangChain (Latest stable Python release)
 langchain==1.2.0
