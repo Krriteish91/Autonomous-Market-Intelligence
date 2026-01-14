@@ -9,6 +9,7 @@ from typing import Any
 from src.logger import logging
 from src.exception import CustomException
 
+SYMBOLS = ["SPY", "QQQ", "DIA"]
 
 def fetch_market_data(symbol: str = "AAPL", period: str = "5d"):
     logging.info(f"Fetching market data for {symbol}")
@@ -44,5 +45,5 @@ def save_raw_data(data: dict[str,Any],symbol:str) -> None:
         raise CustomException(e,sys)
 
 if __name__ == "__main__":
-    fetch_market_data("AAPL")
-    fetch_market_data("GOOGL")
+    for symbol in SYMBOLS:
+        fetch_market_data(symbol)

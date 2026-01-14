@@ -41,7 +41,7 @@ def process_news():
         os.makedirs(os.path.dirname(PROCESSED_PATH), exist_ok=True)
         df.to_csv(PROCESSED_PATH, index=False)
         logging.info(f"Processed news data saved successfully at {PROCESSED_PATH}")
-        print(f"[✓] Processed news saved → {PROCESSED_PATH}")
+        print(f" Processed news saved → {PROCESSED_PATH}")
     except Exception as e:
         raise CustomException(e, sys)
 

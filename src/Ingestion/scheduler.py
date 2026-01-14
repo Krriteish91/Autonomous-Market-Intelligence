@@ -5,13 +5,14 @@ from src.logger import logging
 from src.exception import CustomException
 import sys
 
+SYMBOLS = ["SPY", "QQQ", "DIA"]
 def run_ingestion_cycle():
     try:
         logging.info("Starting ingestion cycle")
 
         # Fetch market data
-        fetch_market_data("AAPL")
-        fetch_market_data("GOOGL")
+        for symbol in SYMBOLS:
+            fetch_market_data(symbol)
 
         # Fetch news data
         fetch_news()
