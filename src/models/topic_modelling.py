@@ -13,7 +13,7 @@ OUTPUT_PATH = "data/processed/news/news_with_topics.csv"
 try:
     df = pd.read_csv(INPUT_PATH)  # type: ignore
     text = df['clean_text'].astype(str).tolist()  # type: ignore
-    logging.info("Data loaded for topic modelling.")
+    logging.info("Data loaded successfully for topic modelling.")
     embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
     topic_model = BERTopic(
